@@ -62,7 +62,8 @@ class Payment {
     bool isPrinterEstablishment = true,
   }) async {
     try {
-      await channel.invokeMethod(PaymentTypeCall.ACTIVEPINPAD_CREDENTIALS.method, {
+      await channel
+          .invokeMethod(PaymentTypeCall.ACTIVEPINPAD_CREDENTIALS.method, {
         "appName": appName,
         "stoneCode": stoneCode,
         "qrCodeAuthorization": qrCodeAuthroization,
@@ -185,7 +186,8 @@ class Payment {
   Future<bool> printerCurrentTransaction({
     required bool isPrinter,
   }) async {
-    return await channel.invokeMethod(PaymentTypeCall.PRINTER_TRANSACTION.method, {
+    return await channel
+        .invokeMethod(PaymentTypeCall.PRINTER_TRANSACTION.method, {
       "isPrinter": isPrinter,
     });
   }
@@ -195,7 +197,8 @@ class Payment {
     required int amount,
     required PaymentTypeTransaction transactionType,
   }) async {
-    return await channel.invokeMethod(PaymentTypeCall.CANCEL_TRANSACTION.method, {
+    return await channel
+        .invokeMethod(PaymentTypeCall.CANCEL_TRANSACTION.method, {
       "amount": amount.toString(),
       "transactionType": transactionType.type,
     });
